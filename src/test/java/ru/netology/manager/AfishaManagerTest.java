@@ -1,8 +1,7 @@
 package ru.netology.manager;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-//import ru.netology.domain.Afisha;
 import ru.netology.domain.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +20,6 @@ class AfishaManagerTest {
     private Afisha ninth = new Afisha(9, "Безумный Макс", "jpg", " action ", true);
     private Afisha tenth = new Afisha(10, "Поезд на Юму", "jpg", "western", false);
 
-    //    @BeforeEach
     void setUp() {
         manager.addFilm(first);
         manager.addFilm(second);
@@ -105,5 +103,4 @@ class AfishaManagerTest {
         assertArrayEquals(expected, actual);
 
     }
-
 }
