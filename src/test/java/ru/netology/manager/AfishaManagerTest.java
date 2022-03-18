@@ -1,6 +1,7 @@
 package ru.netology.manager;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.*;
 
@@ -20,6 +21,7 @@ class AfishaManagerTest {
     private Afisha ninth = new Afisha(9, "Безумный Макс", "jpg", " action ", true);
     private Afisha tenth = new Afisha(10, "Поезд на Юму", "jpg", "western", false);
 
+    @BeforeEach
     void setUp() {
         manager.addFilm(first);
         manager.addFilm(second);
@@ -35,7 +37,6 @@ class AfishaManagerTest {
 
     @Test
     void shouldAddAnyNumberOfMovies() {
-        setUp();
         manager.addFilm(new Afisha(11, "2012", "jpg", "fantastic", false));
         int expected = 11;
         int actual = manager.getFilmQuantity();
@@ -45,62 +46,9 @@ class AfishaManagerTest {
 
     @Test
     void shouldGetAllArray() {
-        setUp();
         int expected = 10;
         Afisha[] actual = manager.showAll();
 
         assertEquals(expected, actual.length);
-    }
-
-    @Test
-    void shouldGetOnlyTheLastTen() {
-        manager.getAfisha(11);
-        int expected = 10;
-        int actual = manager.getFilmsNumber();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldDontBeNegativeAndGetOnlyTheLastTen() {
-        manager.getAfisha(-1);
-        int expected = 10;
-        int actual = manager.getFilmsNumber();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldGetFilmNumber() {
-        int expected = 10;
-        int actual = manager.getFilmsNumber();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldIsPremiereTomorrow() {
-        fourth.setPremiereTomorrow(true);
-        String expected = String.valueOf(true);
-        String actual = String.valueOf(fourth.isPremiereTomorrow());
-    }
-
-    @Test
-    public void shouldFindLastOver() {
-        Manager manager = new Manager(9);
-        manager.addFilm(first);
-        manager.addFilm(second);
-        manager.addFilm(third);
-        manager.addFilm(fourth);
-        manager.addFilm(fifth);
-        manager.addFilm(sixth);
-        manager.addFilm(seventh);
-        manager.addFilm(eighth);
-        manager.addFilm(ninth);
-        manager.addFilm(tenth);
-
-
-        Afisha[] expected = new Afisha[]{tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
-        Afisha[] actual = manager.showAll();
-
-        assertArrayEquals(expected, actual);
-
     }
 }

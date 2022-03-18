@@ -63,22 +63,22 @@ public class Manager {
         return result;
     }
 
-    //--------------- Выводим любой фильм по индексу из массива---------------
-    public Afisha getAfisha(int index) {
-        Afisha result = null;
-        if (index >= 0 && index < films.length) {
-            result = films[index];
-        }
-        return result;
-    }
-
-    public int getFilmsNumber() {
-        return filmsNumber;
-    }
-
     public int getFilmQuantity() {
         return films.length;
     }
+
+    //--------------- Выводим любой фильм по индексу из массива---------------
+//    public Afisha getAfisha(int index) {
+//        Afisha result = null;
+//        if (index >= 0 && index < films.length) {
+//            result = films[index];
+//        }
+//        return result;
+//    }
+//
+//    public int getFilmsNumber() {
+//        return filmsNumber;
+//    }
 
 }
 
